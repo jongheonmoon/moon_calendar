@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./preview/my_img.png" />
+  <img src="https://github.com/jongheonmoon/moon_calendar/blob/master/preview/my_img.png" />
 </p>
  
 <h1 align="center">Flutter Calendar</h1>
@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
 ## Preview
 
 <p align="center">
-  <img src="./preview/preview1.png" />
+  <img src="https://github.com/jongheonmoon/moon_calendar/blob/master/preview/preview1.png" />
 </p>
  
  
