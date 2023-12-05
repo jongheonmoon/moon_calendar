@@ -61,7 +61,8 @@ class _DayContentsState extends State<_DayContents> {
     );
   }
 
-  Widget day(_Day? day, double width) {
+  /// 일 화면 정보
+  Widget day(Day? day, double width) {
     if (day == null) return const SizedBox();
 
     late Color color;
@@ -107,7 +108,7 @@ class _DayContentsState extends State<_DayContents> {
                   Radius.circular(20 * 46 / 38),
                 ),
                 border: Border.all(
-                  color: AppColors.brandColor,
+                  color: AppColors.mainColor,
                   width: 1,
                 ),
               )
@@ -137,10 +138,10 @@ class _DayContentsState extends State<_DayContents> {
                     decoration: ShapeDecoration(
                       shape: CircleBorder(
                           side: BorderSide(
-                        color: AppColors.brandColor,
+                        color: AppColors.mainColor,
                         width: 1,
                       )),
-                      color: AppColors.brandColor,
+                      color: AppColors.mainColor,
                     ),
                   ),
                 ),

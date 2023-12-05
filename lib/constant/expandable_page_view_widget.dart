@@ -17,10 +17,10 @@ class ExpandablePageView extends StatefulWidget {
   });
 
   @override
-  _ExpandablePageViewState createState() => _ExpandablePageViewState();
+  ExpandablePageViewState createState() => ExpandablePageViewState();
 }
 
-class _ExpandablePageViewState extends State<ExpandablePageView> {
+class ExpandablePageViewState extends State<ExpandablePageView> {
   PageController? _pageController;
   List<double> _heights = [];
   int _currentPage = 0;
@@ -93,10 +93,10 @@ class SizeReportingWidget extends StatefulWidget {
   });
 
   @override
-  _SizeReportingWidgetState createState() => _SizeReportingWidgetState();
+  SizeReportingWidgetState createState() => SizeReportingWidgetState();
 }
 
-class _SizeReportingWidgetState extends State<SizeReportingWidget> {
+class SizeReportingWidgetState extends State<SizeReportingWidget> {
   Size? _oldSize;
 
   @override

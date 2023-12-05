@@ -1,7 +1,7 @@
 part of "../calendar.dart";
 
-class _Day {
-  _Day({
+class Day {
+  Day({
     this.day = '',
     this.isWeekend = false,
     this.isToday = false,

@@ -3,7 +3,6 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 import 'package:moon_calendar/constant/app_colors.dart';
 import 'package:moon_calendar/constant/app_sizes.dart';
 import 'package:moon_calendar/constant/expandable_page_view_widget.dart';
@@ -56,7 +55,6 @@ class _CalenderState extends State<Calender> {
   Widget build(BuildContext context) {
     return Obx(() {
       if (controller.isInit.isFalse) return const SizedBox();
-
       return Column(
         children: [
           Row(
@@ -75,7 +73,9 @@ class _CalenderState extends State<Calender> {
                       "assets/images/btn_arrow_disable_13.svg",
                       width: 13,
                       height: 13,
-                      color: controller.isLeftPagingPossible.isTrue ? AppColors.appColor22 : null,
+                      colorFilter: controller.isLeftPagingPossible.isTrue
+                          ? const ColorFilter.mode(AppColors.appColor22, BlendMode.srcIn)
+                          : null,
                     ),
                   ),
                 );
@@ -83,7 +83,7 @@ class _CalenderState extends State<Calender> {
               const SizedBox(width: 9),
               Obx(() {
                 return Text(controller.dateTitle.value,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: AppColors.appColor22,
                       fontWeight: FontWeight.w700,
                       fontSize: AppSizes.fontSize18,
@@ -100,7 +100,9 @@ class _CalenderState extends State<Calender> {
                       "assets/images/btn_arrow_13.svg",
                       width: 13,
                       height: 13,
-                      color: controller.isRightPagingPossible.isFalse ? AppColors.appColorCC : null,
+                      colorFilter: controller.isRightPagingPossible.isFalse
+                          ? const ColorFilter.mode(AppColors.appColorCC, BlendMode.srcIn)
+                          : null,
                     ),
                   ),
                 );

@@ -8,15 +8,19 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  /// This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+
+      /// 디버그 표시를 없앤다.
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      themeMode: ThemeMode.light,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -37,6 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
     DateTime startDateTime = DateTime.now();
     DateTime endDateTime = DateTime.now().add(const Duration(days: 365));
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
@@ -44,16 +49,20 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Calender(
         startDateTime: startDateTime,
         selectCallback: (DateTime dateTime) {
-          print(dateTime.toString());
+          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+            content: Text(dateTime.toString()),
+            duration: const Duration(seconds: 3), // 올라와있는 시간
+          ));
         },
         endDateTime: endDateTime,
         disableSelectedCallback: () {
-          print("선택 안되는 날짜");
+          ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+            content: Text("선택 안되는 날짜"),
+            duration: Duration(seconds: 3), // 올라와있는 시간
+          ));
         },
         isTodayColor: true,
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
-
-

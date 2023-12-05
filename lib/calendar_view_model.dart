@@ -7,7 +7,7 @@ class _CalenderViewModel extends GetxController {
   final DateTime startDateTime;
   final DateTime endDateTime;
   final String possibleDayOfTheWeek;
-  final HashMap<String, List<_Day?>> dayMap = HashMap(); // key = 202208
+  final HashMap<String, List<Day?>> dayMap = HashMap(); // key = 202208
 
   late final PageController pageViewController;
   final dateTitle = "".obs;
@@ -17,7 +17,7 @@ class _CalenderViewModel extends GetxController {
 
   late final visiblePreviousYear = startDateTime.year - 0;
 
-  _Day? selectDay;
+  Day? selectDay;
   final isInit = false.obs;
 
   @override
@@ -29,7 +29,7 @@ class _CalenderViewModel extends GetxController {
     for (int year = visiblePreviousYear; year <= endDateTime.year; year++) {
       final int startMonth = visiblePreviousYear == year ? startDateTime.month : 1;
       for (int month = startMonth; month <= 12; month++) {
-        final dayList = <_Day?>[];
+        final dayList = <Day?>[];
         final dateTime = DateTime(year, month, 1);
         final lastDay = DateTime(year, month + 1, 0).day;
         final weekendMultipleNumber = 8 - dateTime.weekday;
@@ -68,15 +68,15 @@ class _CalenderViewModel extends GetxController {
             isToday = true;
           }
 
-          // 시작날짜 체크하여 디저블 처리
+          /// 시작날짜 체크하여 디저블 처리
           if (date < startDate) {
             isDisabled = true;
           }
-          // 예약 가능기간 체크하여 디저블 처리
+          /// 예약 가능기간 체크하여 디저블 처리
           else if (date > endDate) {
             isDisabled = true;
           }
-          // 요일 체크하여 디저블 처리
+          /// 요일 체크하여 디저블 처리
           else if (!_isPossibleDayOfTheWeek(year, month, day)) {
             isDisabled = true;
           } else {
@@ -85,7 +85,7 @@ class _CalenderViewModel extends GetxController {
             }
           }
 
-          final objDay = _Day(
+          final objDay = Day(
               day: day.toString(),
               isWeekend: isWeekend,
               isDisabled: isDisabled,
@@ -149,6 +149,7 @@ class _CalenderViewModel extends GetxController {
     return result;
   }
 
+  /// 날짜 제목
   void setDateTitle(String year, String month) {
     dateTitle.value = "$year.${month.padLeft(2, '0')}";
 
@@ -159,15 +160,18 @@ class _CalenderViewModel extends GetxController {
     isRightPagingPossible.value = !(iYear == endDateTime.year && iMonth >= 12);
   }
 
+  /// 현재 위치 가져오기
   int getPagePosition(int year, int month) {
     return (year - visiblePreviousYear) * 12 + (month - startDateTime.month);
   }
 
+  /// 요일 맵 키
   String getDayMapKey(int pageIndex) {
     DateTime dateTime = DateTime(visiblePreviousYear, startDateTime.month + pageIndex, 1);
     return "${dateTime.year}${dateTime.month.toString().padLeft(2, '0')}";
   }
 
+  /// 다음 화면
   void nextPage() {
     final currentPage = pageViewController.page?.round() ?? 0;
     if (currentPage < dayMap.length - 1) {
@@ -178,6 +182,7 @@ class _CalenderViewModel extends GetxController {
     }
   }
 
+  /// 이전 화면
   void previousPage() {
     final currentPage = pageViewController.page?.round() ?? 0;
     if (currentPage > 0) {

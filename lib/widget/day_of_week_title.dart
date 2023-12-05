@@ -8,8 +8,8 @@ class _DayOfWeekTitle extends StatelessWidget {
     return SizedBox(
       height: 16,
       child: GridView.builder(
-        physics: NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        physics: const NeverScrollableScrollPhysics(),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 7,
           childAspectRatio: 38 / 46,
         ),
@@ -19,6 +19,7 @@ class _DayOfWeekTitle extends StatelessWidget {
     );
   }
 
+  /// 요일 문구
   Widget dayOfWeek(int index) {
     var dayOfWeekString = "";
     switch (index) {
