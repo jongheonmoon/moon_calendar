@@ -1,7 +1,7 @@
 name: moon_calendar
-description: A new Flutter package project.
-version: 0.0.1
-homepage:
+description: You can make calendar widget Flutter package project.
+version: 1.0.0
+homepage: https://github.com/jongheonmoon/moon_calendar
 
 environment:
   sdk: '>=3.1.3 <4.0.0'

@@ -1,3 +1,1 @@
-## 0.0.1
-
-* TODO: Describe initial release.
+* ./CHANGELOG.md doesn't mention current version (1.0.0).
