@@ -14,5 +14,4 @@ class Day {
   final bool isToday;
   final String day;
   bool isSelected;
-
 }

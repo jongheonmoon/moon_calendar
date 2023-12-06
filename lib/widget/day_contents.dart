@@ -36,8 +36,8 @@ class _DayContentsState extends State<_DayContents> {
 
   @override
   Widget build(BuildContext context) {
-    final width =
-        MediaQuery.of(context).size.width - (2 * MediaQuery.of(context).padding.horizontal);
+    final width = MediaQuery.of(context).size.width -
+        (2 * MediaQuery.of(context).padding.horizontal);
 
     return ScrollConfiguration(
       behavior: const ScrollBehavior(),
@@ -45,7 +45,9 @@ class _DayContentsState extends State<_DayContents> {
         itemCount: widget.controller.dayMap.length,
         controller: widget.controller.pageViewController,
         itemBuilder: (context, pageIndex) {
-          final dayList = widget.controller.dayMap[widget.controller.getDayMapKey(pageIndex)] ?? [];
+          final dayList = widget.controller
+                  .dayMap[widget.controller.getDayMapKey(pageIndex)] ??
+              [];
           return GridView.builder(
             shrinkWrap: true,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -101,7 +103,8 @@ class _DayContentsState extends State<_DayContents> {
         setState(() {});
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: (width / crossAxisCount - 38) / 2, vertical: 2),
+        margin: EdgeInsets.symmetric(
+            horizontal: (width / crossAxisCount - 38) / 2, vertical: 2),
         decoration: day.isSelected
             ? BoxDecoration(
                 borderRadius: const BorderRadius.all(
@@ -120,8 +123,9 @@ class _DayContentsState extends State<_DayContents> {
                 day.day,
                 style: TextStyle(
                   color: color,
-                  fontWeight:
-                      day == widget.controller.selectDay ? FontWeight.bold : FontWeight.w500,
+                  fontWeight: day == widget.controller.selectDay
+                      ? FontWeight.bold
+                      : FontWeight.w500,
                   fontSize: AppSizes.fontSize14,
                 ),
                 textAlign: TextAlign.center,

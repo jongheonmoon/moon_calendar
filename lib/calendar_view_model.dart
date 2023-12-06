@@ -2,7 +2,9 @@ part of "calendar.dart";
 
 class _CalenderViewModel extends GetxController {
   _CalenderViewModel(
-      {required this.startDateTime, required this.endDateTime, required this.possibleDayOfTheWeek});
+      {required this.startDateTime,
+      required this.endDateTime,
+      required this.possibleDayOfTheWeek});
 
   final DateTime startDateTime;
   final DateTime endDateTime;
@@ -27,7 +29,8 @@ class _CalenderViewModel extends GetxController {
 
   init() {
     for (int year = visiblePreviousYear; year <= endDateTime.year; year++) {
-      final int startMonth = visiblePreviousYear == year ? startDateTime.month : 1;
+      final int startMonth =
+          visiblePreviousYear == year ? startDateTime.month : 1;
       for (int month = startMonth; month <= 12; month++) {
         final dayList = <Day?>[];
         final dateTime = DateTime(year, month, 1);
@@ -35,7 +38,9 @@ class _CalenderViewModel extends GetxController {
         final weekendMultipleNumber = 8 - dateTime.weekday;
 
         // 날짜 빈공간 생성
-        for (int day = 0; day < dateTime.weekday && dateTime.weekday != 7; day++) {
+        for (int day = 0;
+            day < dateTime.weekday && dateTime.weekday != 7;
+            day++) {
           dayList.add(null);
         }
 
@@ -44,8 +49,8 @@ class _CalenderViewModel extends GetxController {
           var isSelected = false;
           var isToday = false;
 
-          var isWeekend =
-              (day % 7 == 0 && weekendMultipleNumber == 7) || (day % 7) == weekendMultipleNumber;
+          var isWeekend = (day % 7 == 0 && weekendMultipleNumber == 7) ||
+              (day % 7) == weekendMultipleNumber;
 
           final date = int.parse(
               "$year${month.toString().padLeft(2, '0')}${day.toString().padLeft(2, '0')}");
@@ -53,8 +58,8 @@ class _CalenderViewModel extends GetxController {
           final startDate = int.parse(
               "${startDateTime.year}${startDateTime.month.toString().padLeft(2, '0')}${startDateTime.day.toString().padLeft(2, '0')}");
 
-          final today =
-              int.parse("${DateTime.now().year}${DateTime.now().month}${DateTime.now().day.toString().padLeft(2, '0')}");
+          final today = int.parse(
+              "${DateTime.now().year}${DateTime.now().month}${DateTime.now().day.toString().padLeft(2, '0')}");
 
           final endDate = int.parse(
               '${endDateTime.year}${endDateTime.month.toString().padLeft(2, '0')}${endDateTime.day.toString().padLeft(2, '0')}');
@@ -72,10 +77,12 @@ class _CalenderViewModel extends GetxController {
           if (date < startDate) {
             isDisabled = true;
           }
+
           /// 예약 가능기간 체크하여 디저블 처리
           else if (date > endDate) {
             isDisabled = true;
           }
+
           /// 요일 체크하여 디저블 처리
           else if (!_isPossibleDayOfTheWeek(year, month, day)) {
             isDisabled = true;
@@ -96,7 +103,8 @@ class _CalenderViewModel extends GetxController {
           dayList.add(objDay);
         }
 
-        dayMap.putIfAbsent("$year${month.toString().padLeft(2, '0')}", () => dayList);
+        dayMap.putIfAbsent(
+            "$year${month.toString().padLeft(2, '0')}", () => dayList);
       }
     }
     final dateTime = DateTime.now();
@@ -156,7 +164,8 @@ class _CalenderViewModel extends GetxController {
     int iYear = int.parse(year);
     int iMonth = int.parse(month);
 
-    isLeftPagingPossible.value = !(iYear == visiblePreviousYear && iMonth == startDateTime.month);
+    isLeftPagingPossible.value =
+        !(iYear == visiblePreviousYear && iMonth == startDateTime.month);
     isRightPagingPossible.value = !(iYear == endDateTime.year && iMonth >= 12);
   }
 
@@ -167,7 +176,8 @@ class _CalenderViewModel extends GetxController {
 
   /// 요일 맵 키
   String getDayMapKey(int pageIndex) {
-    DateTime dateTime = DateTime(visiblePreviousYear, startDateTime.month + pageIndex, 1);
+    DateTime dateTime =
+        DateTime(visiblePreviousYear, startDateTime.month + pageIndex, 1);
     return "${dateTime.year}${dateTime.month.toString().padLeft(2, '0')}";
   }
 

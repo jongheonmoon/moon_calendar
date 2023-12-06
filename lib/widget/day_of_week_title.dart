@@ -6,7 +6,7 @@ class _DayOfWeekTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 16,
+      height: 18,
       child: GridView.builder(
         physics: const NeverScrollableScrollPhysics(),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(

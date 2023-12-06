@@ -68,13 +68,15 @@ class _CalenderState extends State<Calender> {
                     controller.previousPage();
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 7, left: 5, right: 5, top: 5),
+                    padding: const EdgeInsets.only(
+                        bottom: 7, left: 5, right: 5, top: 5),
                     child: SvgPicture.asset(
                       "assets/images/btn_arrow_disable_13.svg",
                       width: 13,
                       height: 13,
                       colorFilter: controller.isLeftPagingPossible.isTrue
-                          ? const ColorFilter.mode(AppColors.appColor22, BlendMode.srcIn)
+                          ? const ColorFilter.mode(
+                              AppColors.appColor22, BlendMode.srcIn)
                           : null,
                     ),
                   ),
@@ -95,13 +97,15 @@ class _CalenderState extends State<Calender> {
                 return InkWell(
                   onTap: () => controller.nextPage(),
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 7, left: 5, right: 5, top: 5),
+                    padding: const EdgeInsets.only(
+                        bottom: 7, left: 5, right: 5, top: 5),
                     child: SvgPicture.asset(
                       "assets/images/btn_arrow_13.svg",
                       width: 13,
                       height: 13,
                       colorFilter: controller.isRightPagingPossible.isFalse
-                          ? const ColorFilter.mode(AppColors.appColorCC, BlendMode.srcIn)
+                          ? const ColorFilter.mode(
+                              AppColors.appColorCC, BlendMode.srcIn)
                           : null,
                     ),
                   ),
