@@ -4,8 +4,18 @@
  
 <h1 align="center">Flutter Calendar</h1>
 
- ## Example
+## Git Hub
 
+[https://github.com/jongheonmoon/moon_calendar](link)
+
+
+## Download
+
+```
+moon_calendar: ^1.0.2
+```
+
+## Example
 
 ```dart
 class _MyHomePageState extends State<MyHomePage> {
