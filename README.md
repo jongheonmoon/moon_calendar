@@ -63,6 +63,11 @@ class _MyHomePageState extends State<MyHomePage> {
  
 ## Updates
 
+### 1.0.3
+
+- README.md 수정
+- 나의 프로필 수정
+
 ### 1.0.2
 
 - README.md 수정
