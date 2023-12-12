@@ -1,13 +1,16 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/jongheonmoon/moon_calendar/master/preview/my_img.png" />
+  <img src="https://raw.githubusercontent.com/jongheonmoon/moon_calendar/master/preview/my.png" />
 </p>
  
 <h1 align="center">Flutter Calendar</h1>
 
-## Git Hub
+## GitHub
 
-[https://github.com/jongheonmoon/moon_calendar](link)
+[https://github.com/jongheonmoon/moon_calendar/tree/master](link)
 
+## pub.dev
+
+[https://pub.dev/packages/moon_calendar](link)
 
 ## Download
 
@@ -58,10 +61,12 @@ class _MyHomePageState extends State<MyHomePage> {
 </p>
  
  
-### Updates
-### 1.0.0
+## Updates
 
- - 최초 업로드
+### 1.0.2
+
+- README.md 수정
+- Dart format 변경
 
 ### 1.0.1
 
@@ -69,7 +74,7 @@ class _MyHomePageState extends State<MyHomePage> {
 - 주석 추가
 - 설명 문구 수정
 
-### 1.0.2
+### 1.0.0
 
-- README.md 수정
-- Dart format 변경
+ - 최초 업로드
+
